@@ -1,0 +1,42 @@
+.swal2-container {
+  .swal2-popup {
+    width: clamp(400px, 20vw, 600px) !important;
+    padding: clamp(15px, 1vw, 20px) !important;
+    .swal2-title {
+      font-size: 20px;
+      color: #000;
+    }
+    .swal2-content {
+      font-size: 15px;
+    }
+    .swal2-actions {
+      margin-top: clamp(15px, 1vw, 20px);
+      .swal2-styled {
+        font-size: clamp(14px, 0.8vw, 21px);
+        padding: 0.3vw 1vw;
+        margin: 0 0.5vw !important;
+        height: clamp(30px, 2vw, 60px);
+        &.swal2-confirm {
+          border-color: #8bc34a;
+          color: #fff;
+          background-color: #8bc34a;
+          order: 2;
+        }
+        &.swal2-cancel {
+          border: 1px solid;
+          border-color: red !important;
+          color: red;
+          background-color: #fff !important;
+          order: 1;
+        }
+        &:focus {
+          box-shadow: unset;
+        }
+      }
+    }
+  }
+}
+
+.v-data-table {
+  border: 1px solid #ddd !important;
+}

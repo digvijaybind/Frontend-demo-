@@ -1,32 +1,109 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <side-nav-and-header></side-nav-and-header>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import SideNavAndHeader from "@/components/SideNavAndHeader";
+export default {
+  components: {
+    SideNavAndHeader,
+  },
+  name: "App",
+  created() {
+    // console.log("this.$route", localStorage.getItem("userType"), this.items);
+    // this.routeFetch();
+  },
+  data: () => {
+    return {
+      // items: [
+      //   { title: "dashboard", icon: "mdi-view-dashboard" },
+      //   { title: "manager", icon: "mdi-account-tie" },
+      //   { title: "admin", icon: "mdi-account-cog" },
+      //   { title: "participant", icon: "mdi-account" },
+      //   { title: "about", icon: "mdi-information-outline" },
+      // ],
+      // right: true,
+    };
+  },
+  watch: {
+    // "$route.name": function (newVal) {
+    //   console.log("newval", newVal);
+    //   this.$store.commit("setRoute", newVal);
+    //   this.routeFetch();
+    // },
+  },
+  methods: {
+    // routeFetch() {
+    //   if (localStorage.getItem("userType") === "admin") {
+    //     this.items = [
+    //       { title: "dashboard", icon: "mdi-view-dashboard" },
+    //       { title: "admin", icon: "mdi-account-cog" },
+    //       { title: "participant", icon: "mdi-account" },
+    //       { title: "about", icon: "mdi-information-outline" },
+    //     ];
+    //   } else if (localStorage.getItem("userType") === "participant") {
+    //     this.items = [
+    //       { title: "dashboard", icon: "mdi-view-dashboard" },
+    //       { title: "participant", icon: "mdi-account" },
+    //       { title: "about", icon: "mdi-information-outline" },
+    //     ];
+    //   } else {
+    //     this.items = [
+    //       { title: "dashboard", icon: "mdi-view-dashboard" },
+    //       { title: "manager", icon: "mdi-account-tie" },
+    //       { title: "admin", icon: "mdi-account-cog" },
+    //       { title: "participant", icon: "mdi-account" },
+    //       { title: "about", icon: "mdi-information-outline" },
+    //     ];
+    //   }
+    // },
+    // gotoLink(currenttLink) {
+    //   console.log("currenttLink", `/${currenttLink}`);
+    //   this.$router.push({
+    //     path: `/${currenttLink}`,
+    //   });
+    // },
+    // getLogout() {
+    //   localStorage.removeItem("accessToken");
+    //   localStorage.removeItem("userType");
+    //   this.$router.push({ name: "Login&Register" });
+    // },
+    // toggleTheme() {
+    //   this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    // },
+    // validate() {
+    //   this.$refs.form.validate();
+    // },
+    // reset() {
+    //   this.$refs.form.reset();
+    // },
+    // resetValidation() {
+    //   this.$refs.form.resetValidation();
+    // },
+  },
+  computed: {
+    currentRole() {
+      return localStorage.getItem("userType");
+    },
+  },
+};
+</script>
 
-#nav {
-  padding: 30px;
+<style lang="scss">
+.color-SpringGreen {
+  color: #000 !important;
+  background-color: #8bc34a !important;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.item-list-section {
+  .v-list-item__content {
+    .v-list-item__title {
+      font-size: 18px !important;
+    }
+  }
 }
 </style>
