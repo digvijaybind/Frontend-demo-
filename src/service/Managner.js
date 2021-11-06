@@ -10,7 +10,10 @@ const api = axios.create({
   withCredentials: true,
 });
 export const getCards = () => {
-  return api.get(`admin/cards`).then(SuccessHandler).catch(errorHandler);
+  return api
+    .get(`${localStorage.getItem("userType")}/cards`)
+    .then(SuccessHandler)
+    .catch(errorHandler);
 };
 
 export const getCard = (cardId) => {

@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <side-nav-and-header></side-nav-and-header>
+    <side-nav-and-header
+      v-if="this.$route.name !== 'loginAndRegister'"
+    ></side-nav-and-header>
     <v-main>
       <router-view />
     </v-main>
@@ -9,15 +11,17 @@
 
 <script>
 import SideNavAndHeader from "@/components/SideNavAndHeader";
+
 export default {
   components: {
     SideNavAndHeader,
   },
   name: "App",
   created() {
-    // console.log("this.$route", localStorage.getItem("userType"), this.items);
+    // console.log("this.$route", this.$route.name === "loginAndRegister");
     // this.routeFetch();
   },
+
   data: () => {
     return {
       // items: [

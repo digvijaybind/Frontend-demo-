@@ -6,10 +6,16 @@ import manager from "../views/manager.vue";
 import admin from "../views/admin.vue";
 import participant from "../views/participant.vue";
 import about from "../views/about.vue";
+import loginAndRegister from "../views/loginAndRegister.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/",
+    name: "loginAndRegister",
+    component: loginAndRegister,
+  },
   {
     path: "/dashboard",
     name: "dashboard",

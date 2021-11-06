@@ -179,7 +179,7 @@ export default {
       showLoader: false,
       valid: true,
       form: {
-        logo: "",
+        logo: [],
         company: "",
         video: [],
         image: [],
@@ -234,14 +234,15 @@ export default {
         this.showLoader = true;
         Stalls(this.form)
           .then((response) => {
-            if (response) {
+            if (response.success) {
               this.showLoader = false;
-              this.$swal("Card has added");
+              this.$swal("Stall Has Been Added Successfully");
+              this.$router.push({ path: `/category/${this.form.category}` });
               this.reset();
               this.resetValidation();
             }
           })
-          .catch((error) => console.log("error", error));
+          .catch((error) => this.$swal(error));
       }
     },
 
