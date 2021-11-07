@@ -15,10 +15,12 @@
           </v-col>
           <v-col cols="12" md="3">
             <v-select
+              v-model="selectedCategory"
               :items="items"
               label="Search by Category"
-              v-on:change="getCategory"
+              @change="getCategory(selectedCategory)"
               dense
+              outlined
             ></v-select>
           </v-col>
         </v-row>
@@ -114,24 +116,24 @@ export default {
   },
   data: () => {
     return {
+      selectedCategory: "",
       cards: [],
       Category: [],
       search: "",
       showLoader: false,
       items: [
-        "Chemical",
-        "Science And Technology",
-        "Furniture",
-        "Dry Fruits",
-        "Textiles",
-        "AutoMobile",
-        "Agriculture",
+        "chemical",
+        "science And Technology",
+        "furniture",
+        "dry fruits",
+        "textiles",
+        "autoMobile",
+        "agriculture",
       ],
     };
   },
   mounted() {
     this.getData();
-    this.getCategory();
   },
   methods: {
     deleteD(cardId) {
@@ -160,10 +162,9 @@ export default {
         })
         .catch((error) => console.log("error:::::", error));
     },
-    getCategory(event) {
+    getCategory(category) {
       this.showLoader = true;
-      console.log(event);
-      getByCategory()
+      getByCategory(category)
         .then((response) => {
           this.showLoader = false;
           console.log("Category response", response);
