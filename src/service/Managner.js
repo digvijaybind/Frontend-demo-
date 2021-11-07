@@ -33,7 +33,9 @@ export const deleteCard = (cardId) => {
 
 export const getByCategory = (data) => {
   return api
+
     .get(`${localStorage.getItem("userType")}/cards/category/${data}`)
+
     .then(SuccessHandler)
     .catch(errorHandler);
 };
