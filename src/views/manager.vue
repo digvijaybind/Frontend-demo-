@@ -18,7 +18,7 @@
               :items="items"
               label="Search by Category"
               v-on:change="getCategory"
-              dense
+              solo
             ></v-select>
           </v-col>
         </v-row>
@@ -117,6 +117,7 @@ export default {
       cards: [],
       Category: [],
       search: "",
+      type: "",
       showLoader: false,
       items: [
         "Chemical",
@@ -161,8 +162,8 @@ export default {
         .catch((error) => console.log("error:::::", error));
     },
     getCategory(event) {
-      this.showLoader = true;
       console.log(event);
+      this.showLoader = true;
       getByCategory()
         .then((response) => {
           this.showLoader = false;

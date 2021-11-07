@@ -33,7 +33,7 @@ export const GetByCategory = (data) => {
 
 export const getByCategory = (type) => {
   return api
-    .get(`${localStorage.getItem("userType")}/admin/cards/category/${type}`)
+    .get(`${localStorage.getItem("userType")}/cards/category/${type}`)
     .then(SuccessHandler)
     .catch(errorHandler);
 };

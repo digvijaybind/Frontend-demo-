@@ -77,7 +77,7 @@
                   small
                   color="green"
                 >
-                  <v-icon dark> mdi-pencil </v-icon>
+                  <v-icon dark> mdi-whatsApp </v-icon>
                 </v-btn>
               </div>
               <div class="col-md-3">
@@ -90,7 +90,7 @@
                   small
                   color="green"
                 >
-                  <v-icon dark> mdi-pencil </v-icon>
+                  <v-icon dark> mdi-skype </v-icon>
                 </v-btn>
               </div>
               <div class="col-md-3">
@@ -103,7 +103,7 @@
                   small
                   color="green"
                 >
-                  <v-icon dark> mdi-pencil </v-icon>
+                  <v-icon dark> mdi-linkedin </v-icon>
                 </v-btn>
               </div>
               <div class="col-md-3">
@@ -116,7 +116,7 @@
                   small
                   color="green"
                 >
-                  <v-icon dark> mdi-pencil </v-icon>
+                  <v-icon dark> mdi-web </v-icon>
                 </v-btn>
               </div>
             </div>
