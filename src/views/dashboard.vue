@@ -52,7 +52,7 @@ export default {
         name: "dry-fruits",
       },
       {
-        title: "Tex Tiels",
+        title: "Textiles",
         src: require("@/assets/tex.jpg"),
         name: "tex-tiels",
       },

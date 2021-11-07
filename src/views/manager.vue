@@ -14,12 +14,12 @@
             ></v-text-field>
           </v-col>
           <v-col cols="12" md="3">
-            <v-text-field
-              label="Search By Category"
-              single-line
-              outlined
+            <v-select
+              :items="items"
+              label="Search by Category"
+              v-on:change="getCategory"
               dense
-            ></v-text-field>
+            ></v-select>
           </v-col>
         </v-row>
       </v-form>
@@ -105,6 +105,7 @@
 import { getCards } from "@/service/Managner";
 import { deleteCard, getCardsByCompanyFilter } from "@/service/Managner";
 import loader from "@/components/loader";
+import { getByCategory } from "@/service/Managner";
 
 export default {
   name: "Manager",
@@ -114,13 +115,23 @@ export default {
   data: () => {
     return {
       cards: [],
+      Category: [],
       search: "",
       showLoader: false,
+      items: [
+        "Chemical",
+        "Science And Technology",
+        "Furniture",
+        "Dry Fruits",
+        "Textiles",
+        "AutoMobile",
+        "Agriculture",
+      ],
     };
   },
-
   mounted() {
     this.getData();
+    this.getCategory();
   },
   methods: {
     deleteD(cardId) {
@@ -146,6 +157,17 @@ export default {
           this.showLoader = false;
           console.log("response", response);
           this.cards = response.data;
+        })
+        .catch((error) => console.log("error:::::", error));
+    },
+    getCategory(event) {
+      this.showLoader = true;
+      console.log(event);
+      getByCategory()
+        .then((response) => {
+          this.showLoader = false;
+          console.log("Category response", response);
+          this.Category = response.data;
         })
         .catch((error) => console.log("error:::::", error));
     },

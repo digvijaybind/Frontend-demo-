@@ -26,7 +26,7 @@ export const getCard = (cardId) => {
 export const deleteCard = (cardId) => {
   console.log("Delete Card Method Called");
   return api
-    .delete(`http://localhost:5500/manager/card/${cardId}`)
+    .delete(`manager/card/${cardId}`)
     .then(SuccessHandler)
     .catch(errorHandler);
 };
@@ -40,7 +40,7 @@ export const getByCategory = (data) => {
 
 export const UpdateStalls = (cardId, data) => {
   return api
-    .patch(`http://localhost:5500/manager/card/${cardId}`, data)
+    .patch(`manager/card/${cardId}`, data)
     .then(SuccessHandler)
     .catch(errorHandler);
 };

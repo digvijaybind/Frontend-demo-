@@ -110,7 +110,7 @@
             <div class="col-md-3">
               <v-text-field
                 label="Whatsapp Link*"
-                placeholder="please enter like this http://wa.me/918788825286"
+                placeholder="please enter like this http://wa.me/+918788825286"
                 prepend-icon="mdi-alpha-w-circle"
                 filled
                 :rules="linkValidator"

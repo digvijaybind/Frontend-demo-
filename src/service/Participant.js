@@ -19,21 +19,21 @@ export const AllStalls = (Credentials) => {
 
 export const SingleStall = (Credential) => {
   return api
-    .get("participant/card/:id", Credential)
+    .get(`${localStorage.getItem("userType")}/participant/card/:id`, Credential)
     .then(SuccessHandler)
     .catch(errorHandler);
 };
 
 export const GetByCategory = (data) => {
   return api
-    .get(`participant/cards/${data}`)
+    .get(`${localStorage.getItem("userType")}/participant/cards/${data}`)
     .then(SuccessHandler)
     .catch(errorHandler);
 };
 
 export const getByCategory = (type) => {
   return api
-    .get(`admin/cards/category/${type}`)
+    .get(`${localStorage.getItem("userType")}/admin/cards/category/${type}`)
     .then(SuccessHandler)
     .catch(errorHandler);
 };

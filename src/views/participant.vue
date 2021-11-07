@@ -13,13 +13,12 @@
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="3">
-          <v-text-field
-            label="Search By Category"
-            single-line
-            outlined
-            v-model="searchCategory"
-            dense
-          ></v-text-field>
+          <v-select
+            :items="items"
+            label="Search by Category"
+            @change="getCategory"
+            solo
+          ></v-select>
         </v-col>
       </v-row>
     </v-form>
@@ -71,6 +70,7 @@
 <script>
 import { getCards, getCardsByCompanyFilter } from "@/service/Managner";
 import loader from "@/components/loader";
+import { getByCategory } from "@/service/Managner";
 
 export default {
   components: {
@@ -82,7 +82,17 @@ export default {
       search: "",
       searchCategory: "",
       cards: [],
+      Category: [],
       showLoader: false,
+      items: [
+        "Chemical",
+        "Science And Technology",
+        "Furniture",
+        "Dry Fruits",
+        "Textiles",
+        "AutoMobile",
+        "Agriculture",
+      ],
     };
   },
 
@@ -113,6 +123,17 @@ export default {
           this.cards = response.data;
         })
         .catch((error) => console.log("error", error));
+    },
+    getCategory() {
+      this.showLoader = true;
+
+      getByCategory()
+        .then((response) => {
+          this.showLoader = false;
+          console.log("Category response", response);
+          this.Category = response.data;
+        })
+        .catch((error) => console.log("error:::::", error));
     },
   },
 };
