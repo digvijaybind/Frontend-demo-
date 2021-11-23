@@ -77,7 +77,7 @@
                   small
                   color="green"
                 >
-                  <v-icon dark> mdi-whatsApp </v-icon>
+                  <v-icon dark> mdi-whatsapp </v-icon>
                 </v-btn>
               </div>
               <div class="col-md-3">

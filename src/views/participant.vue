@@ -16,7 +16,8 @@
           <v-select
             :items="items"
             label="Search by Category"
-            @change="getCategory"
+            @change="getCategory(selectedCategory)"
+            v-model="selectedCategory"
             solo
           ></v-select>
         </v-col>
@@ -81,17 +82,18 @@ export default {
     return {
       search: "",
       searchCategory: "",
+      selectedCategory: "",
       cards: [],
       Category: [],
       showLoader: false,
       items: [
-        "Chemical",
-        "Science And Technology",
-        "Furniture",
-        "Dry Fruits",
-        "Textiles",
-        "AutoMobile",
-        "Agriculture",
+        "agriculture",
+        "automobile",
+        "chemical",
+        "dryfruits",
+        "furniture",
+        "science-Technology",
+        "textTiles",
       ],
     };
   },
@@ -124,14 +126,14 @@ export default {
         })
         .catch((error) => console.log("error", error));
     },
-    getCategory() {
+    getCategory(category) {
       this.showLoader = true;
 
-      getByCategory()
+      getByCategory(category)
         .then((response) => {
           this.showLoader = false;
           console.log("Category response", response);
-          this.Category = response.data;
+          this.cards = response.data;
         })
         .catch((error) => console.log("error:::::", error));
     },

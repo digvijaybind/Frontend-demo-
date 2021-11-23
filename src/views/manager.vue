@@ -124,13 +124,13 @@ export default {
       type: "",
       showLoader: false,
       items: [
-        "chemical",
-        "science And Technology",
-        "furniture",
-        "dry fruits",
-        "textiles",
-        "autoMobile",
         "agriculture",
+        "automobile",
+        "chemical",
+        "dryfruits",
+        "furniture",
+        "science-Technology",
+        "textTiles",
       ],
     };
   },
@@ -171,7 +171,7 @@ export default {
         .then((response) => {
           this.showLoader = false;
           console.log("Category response", response);
-          this.Category = response.data;
+          this.cards = response.data;
         })
         .catch((error) => console.log("error:::::", error));
     },
